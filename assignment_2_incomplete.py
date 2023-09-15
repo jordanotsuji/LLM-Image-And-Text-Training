@@ -144,14 +144,11 @@ def newyorker_caption_contest_llama2(args):
         # ======================> ADD YOUR CODE TO DEFINE A PROMPT WITH TWO TRAIN EXAMPLES/DEMONSTRATIONS/SHOTS <======================
 
         # create a prompt with a system prompt and a user message containing the image and its caption and ask the model to explain the joke
-        prompt = f"""
-        <s>[INST] <<SYS>>
+        prompt = f"""<s>[INST] <<SYS>>
         You are a chatbot that explains the jokes in a comic strip given a description of the photo and a caption.
         <</SYS>>
 
-        Explain the joke in this description and caption:
-        {val_inst["input"]}
-        {val_inst["caption_choices"]} [/INST]
+        Explain the joke in this scene description and caption: {val_inst["input"]}, {val_inst["caption_choices"]} [/INST] 
         """
 
         sequences = pipeline(prompt, do_sample=True, eos_token_id=tokenizer.eos_token_id, max_length=1024)
@@ -200,5 +197,5 @@ if __name__ == "__main__":
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed(args.seed)
 
-    newyorker_caption_contest_idefics(args)
+    # newyorker_caption_contest_idefics(args)
     newyorker_caption_contest_llama2(args)

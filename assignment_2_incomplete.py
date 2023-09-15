@@ -3,7 +3,6 @@ import numpy as np
 import torch
 import jsonlines
 import random
-from PIL import Image
 
 
 def newyorker_caption_contest_data(args):

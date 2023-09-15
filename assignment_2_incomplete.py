@@ -159,7 +159,8 @@ def newyorker_caption_contest_llama2(args):
     filename = "out/val.jsonl"
     with jsonlines.open(filename, mode="w") as writer:
         for item in nyc_data_five_val:
-            writer.write(item)
+            print(item)
+            # writer.write(item)
 
 
 if __name__ == "__main__":
